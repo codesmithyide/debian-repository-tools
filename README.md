@@ -2,6 +2,9 @@
 
 This project contains tools to manage Debian repositories.
 
+See https://earthly.dev/blog/creating-and-hosting-your-own-deb-packages-and-apt-repo/ and
+https://wiki.debian.org/DebianRepository.
+
 ## License
 
 Copyright (c) 2020-2024 Xavier Leclercq
