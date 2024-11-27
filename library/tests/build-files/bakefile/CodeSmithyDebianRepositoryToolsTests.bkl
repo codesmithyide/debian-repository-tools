@@ -23,8 +23,14 @@ program CodeSmithyDebianRepositoryToolsTests : IshikoTestFramework
         archs = x86 x86_64;
     }
 
+    headers
+    {
+        ../../DebianRepositoryManagerTests.hpp
+    }
+
     sources
     {
+        ../../DebianRepositoryManagerTests.cpp
         ../../src/main.cpp
     }
 }
