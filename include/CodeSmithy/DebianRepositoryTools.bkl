@@ -1,0 +1,20 @@
+setting CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT
+{
+    help = "Path to the CodeSmithyIDE/DebianRepositoryTools installation";
+    default = '$(CODESMITHYIDE_ROOT)/debian-repository-tools';
+}
+
+template CodeSmithyDebianRepositoryTools
+{
+    includedirs += $(CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT)/include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT)/lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT)/lib/$(arch);
+    }
+}

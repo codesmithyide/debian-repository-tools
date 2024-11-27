@@ -1,3 +1,5 @@
+codesmithyidepath = envvar("CODESMITHYIDE_ROOT");
+import $(codesmithyidepath)/debian-repository-tools/include/CodeSmithy/DebianRepositoryTools.bkl;
 ishikopath = envvar("ISHIKO_CPP_ROOT");
 import $(ishikopath)/test-framework/include/Ishiko/TestFramework.bkl;
 
@@ -9,7 +11,7 @@ vs2019.solutionfile = ../vc16/CodeSmithyDebianRepositoryToolsTests.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyDebianRepositoryToolsTests.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyDebianRepositoryToolsTests.sln;
 
-program CodeSmithyDebianRepositoryToolsTests : IshikoTestFramework
+program CodeSmithyDebianRepositoryToolsTests : CodeSmithyDebianRepositoryTools, IshikoTestFramework
 {
     if ($(toolset) == gnu)
     {
@@ -25,12 +27,12 @@ program CodeSmithyDebianRepositoryToolsTests : IshikoTestFramework
 
     headers
     {
-        ../../DebianRepositoryManagerTests.hpp
+        ../../src/DebianRepositoryManagerTests.hpp
     }
 
     sources
     {
-        ../../DebianRepositoryManagerTests.cpp
+        ../../src/DebianRepositoryManagerTests.cpp
         ../../src/main.cpp
     }
 }

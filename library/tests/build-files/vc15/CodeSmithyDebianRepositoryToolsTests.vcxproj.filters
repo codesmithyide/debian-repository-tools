@@ -17,12 +17,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\DebianRepositoryManagerTests.hpp">
+    <ClInclude Include="..\..\src\DebianRepositoryManagerTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\DebianRepositoryManagerTests.cpp">
+    <ClCompile Include="..\..\src\DebianRepositoryManagerTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\main.cpp">
