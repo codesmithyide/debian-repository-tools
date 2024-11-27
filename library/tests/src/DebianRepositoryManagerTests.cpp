@@ -11,11 +11,20 @@ DebianRepositoryManagerTests::DebianRepositoryManagerTests(const Ishiko::TestNum
     : Ishiko::TestSequence(number, "DebianRepositoryManager tests", context)
 {
     append<Ishiko::HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
+    append<Ishiko::HeapAllocationErrorsTest>("generatePackagesFile test 1", GeneratePackagesFileTest1);
 }
 
 void DebianRepositoryManagerTests::ConstructorTest1(Ishiko::Test& test)
 {
     DebianRepositoryManager repository_manager;
+
+    ISHIKO_TEST_PASS();
+}
+
+void DebianRepositoryManagerTests::GeneratePackagesFileTest1(Ishiko::Test& test)
+{
+    DebianRepositoryManager repository_manager;
+    repository_manager.generatePackagesFile();
 
     ISHIKO_TEST_PASS();
 }

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #include "DebianRepositoryManagerTests.hpp"
+#include "CodeSmithy/DebianRepositoryTools/linkoptions.hpp"
 #include <Ishiko/TestFramework.hpp>
 #include <exception>
 
