@@ -17,18 +17,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\CodeSmithy\DebianPackageRepositoryTools.hpp">
+    <ClInclude Include="..\..\include\CodeSmithy\DebianRepositoryTools.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\CodeSmithy\DebianPackageRepositoryTools\DebianPackageRepositoryManager.hpp">
+    <ClInclude Include="..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\CodeSmithy\DebianPackageRepositoryTools\linkoptions.hpp">
+    <ClInclude Include="..\..\include\CodeSmithy\DebianRepositoryTools\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\DebianPackageRepositoryManager.cpp">
+    <ClCompile Include="..\..\src\DebianRepositoryManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

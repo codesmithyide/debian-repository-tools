@@ -54,19 +54,19 @@ _builddir := $(if $(findstring $(abspath $(builddir)),$(builddir)),,../../)$(bui
 _builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
 $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
 endif
-all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianPackageRepositoryTools-d,CodeSmithyDebianPackageRepositoryTools).a
+all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a
 
-../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianPackageRepositoryTools-d,CodeSmithyDebianPackageRepositoryTools).a: $(_builddir)CodeSmithyDebianPackageRepositoryTools_DebianPackageRepositoryManager.o
-	$(AR) rc $@ $(_builddir)CodeSmithyDebianPackageRepositoryTools_DebianPackageRepositoryManager.o
+../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a: $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o
+	$(AR) rc $@ $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o
 	$(RANLIB) $@
 
-$(_builddir)CodeSmithyDebianPackageRepositoryTools_DebianPackageRepositoryManager.o: ../../src/DebianPackageRepositoryManager.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../include/CodeSmithy/DebianPackageRepositoryTools -std=c++11 ../../src/DebianPackageRepositoryManager.cpp
+$(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o: ../../src/DebianRepositoryManager.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryManager.cpp
 
 clean:
 	rm -f $(_builddir)*.o
 	rm -f $(_builddir)*.d
-	rm -f ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianPackageRepositoryTools-d,CodeSmithyDebianPackageRepositoryTools).a
+	rm -f ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a
 
 .PHONY: all clean
 
