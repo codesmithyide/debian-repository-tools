@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
 // SPDX-License-Identifier: MIT
 
+#include "DebianRepositoryManagerTests.hpp"
 #include <Ishiko/TestFramework.hpp>
 #include <exception>
 
@@ -17,6 +18,7 @@ int main(int argc, char* argv[])
         TestHarness the_test_harness("CodeSmithyDebianRepositoryTools Library Tests", configuration);
 
         TestSequence& the_tests = the_test_harness.tests();
+        the_tests.append<DebianRepositoryManagerTests>();
 
         return the_test_harness.run();
     }
