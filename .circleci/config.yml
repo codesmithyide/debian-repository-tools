@@ -11,7 +11,7 @@ jobs:
           path: /workspace/projects/codesmithyide/debian-repository-tools
       - run:
           name: Build
-          command: cd /workspace/projects/codesmithyide/debian-repository-tools/build-files/gnumake && make
+          command: cd /workspace/projects/codesmithyide/debian-repository-tools/library/build-files/gnumake && make
   build:
     docker:
       - image: codesmithy/gcc-build-prerequisites:0.14.0
@@ -23,7 +23,7 @@ jobs:
           path: /workspace/projects/codesmithyide/debian-repository-tools
       - run:
           name: Build
-          command: cd /workspace/projects/codesmithyide/debian-repository-tools/build-files/gnumake && make
+          command: cd /workspace/projects/codesmithyide/debian-repository-tools/library/build-files/gnumake && make
 workflows:
   version: 2
   continuous_build:
