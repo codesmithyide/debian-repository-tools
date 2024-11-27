@@ -23,8 +23,10 @@ void DebianRepositoryManagerTests::ConstructorTest1(Ishiko::Test& test)
 
 void DebianRepositoryManagerTests::GeneratePackagesFileTest1(Ishiko::Test& test)
 {
+    const boost::filesystem::path binary_packages_tree_path = test.context().getDataDirectory();
+
     DebianRepositoryManager repository_manager;
-    repository_manager.generatePackagesFile();
+    repository_manager.generatePackagesFile(binary_packages_tree_path.string());
 
     ISHIKO_TEST_PASS();
 }

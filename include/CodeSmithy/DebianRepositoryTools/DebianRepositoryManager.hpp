@@ -13,7 +13,7 @@ namespace CodeSmithy
     public:
         DebianRepositoryManager();
 
-        void generatePackagesFile();
+        void generatePackagesFile(const std::string& binary_packages_tree_path);
 
     private:
         std::string m_dpkg_scanpackages_path;
