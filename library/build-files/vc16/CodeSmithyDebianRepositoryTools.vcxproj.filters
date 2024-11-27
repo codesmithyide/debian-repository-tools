@@ -17,13 +17,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\CodeSmithy\DebianRepositoryTools.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryManager.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\CodeSmithy\DebianRepositoryTools\linkoptions.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

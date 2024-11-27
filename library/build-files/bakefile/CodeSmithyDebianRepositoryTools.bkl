@@ -8,18 +8,18 @@ vs2015.solutionfile = ../vc14/CodeSmithyDebianRepositoryTools.sln;
 
 library CodeSmithyDebianRepositoryTools
 {
-    includedirs += ../../include/CodeSmithy/DebianRepositoryTools;
+    includedirs += ../../../include/CodeSmithy/DebianRepositoryTools;
 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        outputdir = ../../lib;
+        outputdir = ../../../lib;
     }
 
     if ($(toolset) != gnu)
     {
         archs = x86 x86_64;
-        outputdir = ../../lib/$(arch);
+        outputdir = ../../../lib/$(arch);
     }
 
     if ($(config) == Debug)
@@ -29,9 +29,9 @@ library CodeSmithyDebianRepositoryTools
 
     headers
     {
-        ../../include/CodeSmithy/DebianRepositoryTools.hpp
-        ../../include/CodeSmithy/DebianRepositoryTools/DebianRepositoryManager.hpp
-        ../../include/CodeSmithy/DebianRepositoryTools/linkoptions.hpp
+        ../../../include/CodeSmithy/DebianRepositoryTools.hpp
+        ../../../include/CodeSmithy/DebianRepositoryTools/DebianRepositoryManager.hpp
+        ../../../include/CodeSmithy/DebianRepositoryTools/linkoptions.hpp
     }
 
     sources
