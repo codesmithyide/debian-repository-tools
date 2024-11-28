@@ -2,3 +2,9 @@
 // SPDX-License-Identifier: MIT
 
 #include "DebianRepositoryReleaseFile.hpp"
+
+using namespace CodeSmithy;
+
+void DebianRepositoryReleaseFile::write(Ishiko::TextFile& file)
+{
+}
