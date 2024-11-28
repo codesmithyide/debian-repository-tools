@@ -151,10 +151,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\DebianRepositoryManager.cpp" />
+    <ClCompile Include="..\..\src\DebianRepositoryReleaseFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryManager.hpp" />
+    <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryReleaseFile.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\linkoptions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -34,11 +34,13 @@ library CodeSmithyDebianRepositoryTools : IshikoProcess
     {
         ../../../include/CodeSmithy/DebianRepositoryTools.hpp
         ../../../include/CodeSmithy/DebianRepositoryTools/DebianRepositoryManager.hpp
+        ../../../include/CodeSmithy/DebianRepositoryTools/DebianRepositoryReleaseFile.hpp
         ../../../include/CodeSmithy/DebianRepositoryTools/linkoptions.hpp
     }
 
     sources
     {
         ../../src/DebianRepositoryManager.cpp
+        ../../src/DebianRepositoryReleaseFile.cpp
     }
 }

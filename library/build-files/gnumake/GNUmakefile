@@ -86,12 +86,15 @@ ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP_ROOT)/process
 
 all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a
 
-../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a: $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o
-	$(AR) rc $@ $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o
+../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a: $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryReleaseFile.o
+	$(AR) rc $@ $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryReleaseFile.o
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o: ../../src/DebianRepositoryManager.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryManager.cpp
+
+$(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryReleaseFile.o: ../../src/DebianRepositoryReleaseFile.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryReleaseFile.cpp
 
 clean:
 	rm -f $(_builddir)*.o
