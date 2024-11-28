@@ -9,12 +9,10 @@ using namespace CodeSmithy;
 namespace
 {
     Ishiko::CommandLine CreateGeneratePackagesFileCommandLine(const std::string& dpkg_scanpackages_path,
-        const std::string& binary_packages_tree_path, const std::string& output_path)
+        const std::string& binary_packages_tree_path)
     {
         Ishiko::CommandLine command_line(dpkg_scanpackages_path);
         command_line.appendArgument(binary_packages_tree_path);
-        command_line.appendArgument(">");
-        command_line.appendArgument(output_path);
         return command_line;
     }
 }
@@ -28,8 +26,9 @@ void DebianRepositoryManager::generatePackagesFile(const std::string& binary_pac
     const std::string& output_path)
 {
     Ishiko::CommandLine command_line =
-        CreateGeneratePackagesFileCommandLine(m_dpkg_scanpackages_path, binary_packages_tree_path, output_path);
+        CreateGeneratePackagesFileCommandLine(m_dpkg_scanpackages_path, binary_packages_tree_path);
     Ishiko::ChildProcessBuilder process_builder(command_line, Ishiko::CurrentEnvironment());
+    process_builder.redirectStandardOutputToFile(output_path);
     Ishiko::ChildProcess process = process_builder.start();
     process.waitForExit();
     int exit_code = process.exitCode();
