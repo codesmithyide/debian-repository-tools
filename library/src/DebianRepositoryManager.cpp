@@ -25,6 +25,9 @@ DebianRepositoryManager::DebianRepositoryManager()
 void DebianRepositoryManager::generatePackagesFile(const std::string& binary_packages_tree_path,
     const std::string& output_path)
 {
+    // The dpg-scanpackages tool create paths relative to the current working directory so set it to the parent
+    // directory of the binary packages tree.
+
     boost::filesystem::path p = binary_packages_tree_path;
     Ishiko::CommandLine command_line =
         CreateGeneratePackagesFileCommandLine(m_dpkg_scanpackages_path, p.filename().string());
