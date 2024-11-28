@@ -35,5 +35,6 @@ void DebianRepositoryManagerTests::GeneratePackagesFileTest1(Ishiko::Test& test)
     DebianRepositoryManager repository_manager;
     repository_manager.generatePackagesFile(binary_packages_tree_path.string(), output_path.string());
 
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DebianRepositoryManagerTests_GeneratePackagesFileTest1");
     ISHIKO_TEST_PASS();
 }
