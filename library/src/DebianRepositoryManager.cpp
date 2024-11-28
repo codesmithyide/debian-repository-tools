@@ -25,11 +25,11 @@ DebianRepositoryManager::DebianRepositoryManager()
 void DebianRepositoryManager::generatePackagesFile(const std::string& binary_packages_tree_path,
     const std::string& output_path)
 {
+    boost::filesystem::path p = binary_packages_tree_path;
     Ishiko::CommandLine command_line =
-        CreateGeneratePackagesFileCommandLine(m_dpkg_scanpackages_path, binary_packages_tree_path);
+        CreateGeneratePackagesFileCommandLine(m_dpkg_scanpackages_path, p.filename().string());
     Ishiko::ChildProcessBuilder process_builder(command_line, Ishiko::CurrentEnvironment());
     process_builder.redirectStandardOutputToFile(output_path);
-    boost::filesystem::path p = binary_packages_tree_path;
     process_builder.setCurrentWorkingDirectory(p.parent_path().string());
     Ishiko::ChildProcess process = process_builder.start();
     process.waitForExit();
