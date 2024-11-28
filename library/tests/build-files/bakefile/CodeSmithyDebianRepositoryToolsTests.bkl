@@ -28,11 +28,13 @@ program CodeSmithyDebianRepositoryToolsTests : CodeSmithyDebianRepositoryTools, 
     headers
     {
         ../../src/DebianRepositoryManagerTests.hpp
+        ../../src/DebianRepositoryReleaseFileTests.hpp
     }
 
     sources
     {
         ../../src/DebianRepositoryManagerTests.cpp
+        ../../src/DebianRepositoryReleaseFileTests.cpp
         ../../src/main.cpp
     }
 }

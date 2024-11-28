@@ -157,10 +157,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\DebianRepositoryManagerTests.cpp" />
+    <ClCompile Include="..\..\src\DebianRepositoryReleaseFileTests.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\DebianRepositoryManagerTests.hpp" />
+    <ClInclude Include="..\..\src\DebianRepositoryReleaseFileTests.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
