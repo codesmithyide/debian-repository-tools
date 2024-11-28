@@ -1,3 +1,6 @@
+ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/process/include/Ishiko/Process.bkl;
+
 toolsets = gnu vs2022 vs2019 vs2017 vs2015;
 
 gnu.makefile = ../gnumake/GNUmakefile;
@@ -6,7 +9,7 @@ vs2019.solutionfile = ../vc16/CodeSmithyDebianRepositoryTools.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyDebianRepositoryTools.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyDebianRepositoryTools.sln;
 
-library CodeSmithyDebianRepositoryTools
+library CodeSmithyDebianRepositoryTools : IshikoProcess
 {
     includedirs += ../../../include/CodeSmithy/DebianRepositoryTools;
 

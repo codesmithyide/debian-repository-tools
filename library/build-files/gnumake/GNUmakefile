@@ -33,6 +33,16 @@ override CXXFLAGS += -O2
 else ifneq (,$(config))
 $(warning Unknown configuration "$(config)")
 endif
+#
+# Additionally, this makefile is customizable with the following
+# settings:
+#
+#      ISHIKO_CPP_BASEPLATFORM_ROOT  Path to the Ishiko/C++ BasePlatform installation
+#      ISHIKO_CPP_ERRORS_ROOT        Path to the Ishiko/C++ Errors installation
+#      ISHIKO_CPP_MEMORY_ROOT        Path to the Ishiko/C++ Memory installation
+#      ISHIKO_CPP_BOOST_ROOT         Path to the Boost installation
+#      ISHIKO_CPP_TEXT_ROOT          Path to the Ishiko/C++ Text installation
+#      ISHIKO_CPP_PROCESS_ROOT       Path to the Ishiko/C++ Process installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -54,6 +64,26 @@ _builddir := $(if $(findstring $(abspath $(builddir)),$(builddir)),,../../)$(bui
 _builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
 $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
 endif
+
+# ------------
+# Configurable settings:
+# 
+
+# Path to the Ishiko/C++ BasePlatform installation
+ISHIKO_CPP_BASEPLATFORM_ROOT ?= $(ISHIKO_CPP_ROOT)/base-platform
+# Path to the Ishiko/C++ Errors installation
+ISHIKO_CPP_ERRORS_ROOT ?= $(ISHIKO_CPP_ROOT)/errors
+# Path to the Ishiko/C++ Memory installation
+ISHIKO_CPP_MEMORY_ROOT ?= $(ISHIKO_CPP_ROOT)/memory
+# Path to the Boost installation
+ISHIKO_CPP_BOOST_ROOT ?= $(BOOST_ROOT)
+# Path to the Ishiko/C++ Text installation
+ISHIKO_CPP_TEXT_ROOT ?= $(ISHIKO_CPP_ROOT)/text
+# Path to the Ishiko/C++ Process installation
+ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP_ROOT)/process
+
+# ------------
+
 all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a
 
 ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDebianRepositoryTools-d,CodeSmithyDebianRepositoryTools).a: $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o
@@ -61,7 +91,7 @@ all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyD
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o: ../../src/DebianRepositoryManager.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryManager.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryManager.cpp
 
 clean:
 	rm -f $(_builddir)*.o

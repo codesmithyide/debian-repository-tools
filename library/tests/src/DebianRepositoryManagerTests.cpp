@@ -3,6 +3,7 @@
 
 #include "DebianRepositoryManagerTests.hpp"
 #include "CodeSmithy/DebianRepositoryTools/DebianRepositoryManager.hpp"
+#include <Ishiko/BasePlatform.hpp>
 
 using namespace CodeSmithy;
 
@@ -11,11 +12,30 @@ DebianRepositoryManagerTests::DebianRepositoryManagerTests(const Ishiko::TestNum
     : Ishiko::TestSequence(number, "DebianRepositoryManager tests", context)
 {
     append<Ishiko::HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
+    append<Ishiko::HeapAllocationErrorsTest>("generatePackagesFile test 1", GeneratePackagesFileTest1);
 }
 
 void DebianRepositoryManagerTests::ConstructorTest1(Ishiko::Test& test)
 {
     DebianRepositoryManager repository_manager;
 
+    ISHIKO_TEST_PASS();
+}
+
+void DebianRepositoryManagerTests::GeneratePackagesFileTest1(Ishiko::Test& test)
+{
+#if ISHIKO_OS == ISHIKO_OS_WINDOWS
+    test.skip();
+#endif
+
+    const boost::filesystem::path binary_packages_tree_path =
+        test.context().getDataPath("DebianRepositoryManagerTests_GeneratePackagesFileTest1");
+    const boost::filesystem::path output_path =
+        test.context().getOutputPath("DebianRepositoryManagerTests_GeneratePackagesFileTest1");
+
+    DebianRepositoryManager repository_manager;
+    repository_manager.generatePackagesFile(binary_packages_tree_path.string(), output_path.string());
+
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DebianRepositoryManagerTests_GeneratePackagesFileTest1");
     ISHIKO_TEST_PASS();
 }
