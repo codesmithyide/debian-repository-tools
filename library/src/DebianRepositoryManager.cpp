@@ -29,6 +29,8 @@ void DebianRepositoryManager::generatePackagesFile(const std::string& binary_pac
         CreateGeneratePackagesFileCommandLine(m_dpkg_scanpackages_path, binary_packages_tree_path);
     Ishiko::ChildProcessBuilder process_builder(command_line, Ishiko::CurrentEnvironment());
     process_builder.redirectStandardOutputToFile(output_path);
+    boost::filesystem::path p = binary_packages_tree_path;
+    process_builder.setCurrentWorkingDirectory(p.parent_path().string());
     Ishiko::ChildProcess process = process_builder.start();
     process.waitForExit();
     int exit_code = process.exitCode();
