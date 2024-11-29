@@ -1,4 +1,5 @@
 ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/crypto/include/Ishiko/Crypto.bkl;
 import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
 import $(ishikopath)/process/include/Ishiko/Process.bkl;
 
@@ -10,7 +11,7 @@ vs2019.solutionfile = ../vc16/CodeSmithyDebianRepositoryTools.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyDebianRepositoryTools.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyDebianRepositoryTools.sln;
 
-library CodeSmithyDebianRepositoryTools : IshikoFileSystem, IshikoProcess
+library CodeSmithyDebianRepositoryTools : IshikoCrypto, IshikoFileSystem, IshikoProcess
 {
     includedirs += ../../../include/CodeSmithy/DebianRepositoryTools;
 

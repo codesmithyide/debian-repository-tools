@@ -37,6 +37,8 @@ endif
 # Additionally, this makefile is customizable with the following
 # settings:
 #
+#      ISHIKO_CPP_BOTAN_ROOT         Path to the Botan installation
+#      ISHIKO_CPP_CRYPTO_ROOT        Path to the Ishiko/C++ Crypto installation
 #      ISHIKO_CPP_BASEPLATFORM_ROOT  Path to the Ishiko/C++ BasePlatform installation
 #      ISHIKO_CPP_ERRORS_ROOT        Path to the Ishiko/C++ Errors installation
 #      ISHIKO_CPP_IO_ROOT            Path to the Ishiko/C++ IO installation
@@ -71,6 +73,10 @@ endif
 # Configurable settings:
 # 
 
+# Path to the Botan installation
+ISHIKO_CPP_BOTAN_ROOT ?= $(BOTAN_ROOT)
+# Path to the Ishiko/C++ Crypto installation
+ISHIKO_CPP_CRYPTO_ROOT ?= $(ISHIKO_CPP_ROOT)/crypto
 # Path to the Ishiko/C++ BasePlatform installation
 ISHIKO_CPP_BASEPLATFORM_ROOT ?= $(ISHIKO_CPP_ROOT)/base-platform
 # Path to the Ishiko/C++ Errors installation
@@ -97,10 +103,10 @@ all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyD
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryManager.o: ../../src/DebianRepositoryManager.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryManager.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BOTAN_ROOT)/include/botan-2 -I$(ISHIKO_CPP_CRYPTO_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryManager.cpp
 
 $(_builddir)CodeSmithyDebianRepositoryTools_DebianRepositoryReleaseFile.o: ../../src/DebianRepositoryReleaseFile.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryReleaseFile.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_BOTAN_ROOT)/include/botan-2 -I$(ISHIKO_CPP_CRYPTO_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_IO_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../../include/CodeSmithy/DebianRepositoryTools -std=c++11 ../../src/DebianRepositoryReleaseFile.cpp
 
 clean:
 	rm -f $(_builddir)*.o
