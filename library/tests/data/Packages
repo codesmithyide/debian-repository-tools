@@ -1,0 +1,11 @@
+Package: debian-package-1
+Version: 0.0.1
+Architecture: amd64
+Maintainer: The Maintainer
+Filename: DebianRepositoryManagerTests_GeneratePackagesFileTest1/debian-package-1.deb
+Size: 744
+MD5sum: c321db6aec7a1a4d726123389de4fa56
+SHA1: 33a77be0ec8d21ef3fc9e8897c01ceb6542aedea
+SHA256: 396dc25c1e86e724bf285724cc303b9bc6a58e57f3e6044edb50a9773604fb79
+Description: A Short Description
+
