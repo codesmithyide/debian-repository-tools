@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: MIT
 
 #include "DebianRepositoryReleaseFile.hpp"
+#include <boost/filesystem.hpp>
 
 using namespace CodeSmithy;
 
@@ -17,8 +18,9 @@ void DebianRepositoryReleaseFile::setDate(const Ishiko::UTCTime& date)
 
 void DebianRepositoryReleaseFile::addFile(const std::string& path)
 {
-    size_t file_size = Ishiko::FileSystem::GetFileSize(path.c_str());
-    m_files.emplace_back(FileInfo{Ishiko::SHA256Hash(), file_size, path});
+    std::string generic_path = boost::filesystem::path(path).generic_string();
+    size_t file_size = Ishiko::FileSystem::GetFileSize(generic_path.c_str());
+    m_files.emplace_back(FileInfo{Ishiko::SHA256Hash(), file_size, generic_path});
     m_files.back().hash.updateFromFile(path);
 }
 
