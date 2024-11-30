@@ -15,6 +15,7 @@ program CodeSmithyDebianRepositoryToolsCLI : IshikoTerminal, IshikoErrors
     {
         cxx-compiler-options = "-std=c++11";
         outputdir = ../../../bin;
+        libs += IshikoErrors;
     }
 
     if ($(toolset) != gnu)

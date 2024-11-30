@@ -79,7 +79,7 @@ all: ../../../bin/CodeSmithyDebianRepositoryToolsCLI
 
 ../../../bin/CodeSmithyDebianRepositoryToolsCLI: $(_builddir)CodeSmithyDebianRepositoryToolsCLI_CommandLineSpecification.o $(_builddir)CodeSmithyDebianRepositoryToolsCLI_main.o
 	@mkdir -p $(dir $@)
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CodeSmithyDebianRepositoryToolsCLI_CommandLineSpecification.o $(_builddir)CodeSmithyDebianRepositoryToolsCLI_main.o -L$(ISHIKO_CPP_BOOST_ROOT)/lib -L$(ISHIKO_CPP_TYPES_ROOT)/lib -L$(ISHIKO_CPP_TERMINAL_ROOT)/lib -L$(ISHIKO_CPP_BASEPLATFORM_ROOT)/lib -L$(ISHIKO_CPP_ERRORS_ROOT)/lib -pthread
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CodeSmithyDebianRepositoryToolsCLI_CommandLineSpecification.o $(_builddir)CodeSmithyDebianRepositoryToolsCLI_main.o -L$(ISHIKO_CPP_BOOST_ROOT)/lib -L$(ISHIKO_CPP_TYPES_ROOT)/lib -L$(ISHIKO_CPP_TERMINAL_ROOT)/lib -L$(ISHIKO_CPP_BASEPLATFORM_ROOT)/lib -L$(ISHIKO_CPP_ERRORS_ROOT)/lib -lIshikoErrors -pthread
 
 $(_builddir)CodeSmithyDebianRepositoryToolsCLI_CommandLineSpecification.o: ../../src/CommandLineSpecification.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_TERMINAL_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -std=c++11 ../../src/CommandLineSpecification.cpp
