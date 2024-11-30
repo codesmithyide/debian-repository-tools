@@ -15,9 +15,9 @@ namespace CodeSmithy
     class DebianRepositoryReleaseFile
     {
     public:
-        DebianRepositoryReleaseFile(Ishiko::UTCTime& date);
+        DebianRepositoryReleaseFile(const Ishiko::UTCTime& date);
 
-        void setDate(Ishiko::UTCTime& date);
+        void setDate(const Ishiko::UTCTime& date);
         void addFile(const std::string& path);
 
         void write(Ishiko::TextFile& file);
@@ -30,7 +30,7 @@ namespace CodeSmithy
             std::string path;
         };
 
-        Ishiko::UTCTime& m_date;
+        Ishiko::UTCTime m_date;
         std::vector<FileInfo> m_files;
     };
 }

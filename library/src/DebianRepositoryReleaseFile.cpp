@@ -5,12 +5,12 @@
 
 using namespace CodeSmithy;
 
-DebianRepositoryReleaseFile::DebianRepositoryReleaseFile(Ishiko::UTCTime& date)
+DebianRepositoryReleaseFile::DebianRepositoryReleaseFile(const Ishiko::UTCTime& date)
     : m_date(date)
 {
 }
 
-void DebianRepositoryReleaseFile::setDate(Ishiko::UTCTime& date)
+void DebianRepositoryReleaseFile::setDate(const Ishiko::UTCTime& date)
 {
     m_date = date;
 }
