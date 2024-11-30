@@ -1,5 +1,8 @@
 ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/crypto/include/Ishiko/Crypto.bkl;
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
 import $(ishikopath)/process/include/Ishiko/Process.bkl;
+import $(ishikopath)/time/include/Ishiko/Time.bkl;
 
 setting CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT
 {
@@ -7,7 +10,7 @@ setting CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT
     default = '$(CODESMITHYIDE_ROOT)/debian-repository-tools';
 }
 
-template CodeSmithyDebianRepositoryTools : IshikoProcess
+template CodeSmithyDebianRepositoryTools : IshikoCrypto, IshikoFileSystem, IshikoProcess, IshikoTime
 {
     includedirs += $(CODESMITHYIDE_DEBIANREPOSITORYTOOLS_ROOT)/include;
 

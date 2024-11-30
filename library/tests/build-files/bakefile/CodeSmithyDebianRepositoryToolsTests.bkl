@@ -16,8 +16,8 @@ program CodeSmithyDebianRepositoryToolsTests : CodeSmithyDebianRepositoryTools, 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += CodeSmithyDebianRepositoryTools IshikoTestFramework IshikoTestFrameworkCore IshikoConfiguration IshikoDiff IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoTime IshikoText IshikoErrors IshikoBasePlatform;
-        libs += fmt boost_filesystem;
+        libs += CodeSmithyDebianRepositoryTools IshikoCrypto IshikoTestFramework IshikoTestFrameworkCore IshikoConfiguration IshikoDiff IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoTime IshikoText IshikoErrors IshikoBasePlatform;
+        libs += botan-2 fmt boost_filesystem;
     }
 
     if ($(toolset) != gnu)
@@ -28,11 +28,13 @@ program CodeSmithyDebianRepositoryToolsTests : CodeSmithyDebianRepositoryTools, 
     headers
     {
         ../../src/DebianRepositoryManagerTests.hpp
+        ../../src/DebianRepositoryReleaseFileTests.hpp
     }
 
     sources
     {
         ../../src/DebianRepositoryManagerTests.cpp
+        ../../src/DebianRepositoryReleaseFileTests.cpp
         ../../src/main.cpp
     }
 }
