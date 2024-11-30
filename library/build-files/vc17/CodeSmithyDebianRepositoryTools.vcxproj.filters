@@ -23,12 +23,18 @@
     <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\DebianRepositoryReleaseFile.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\include\CodeSmithy\DebianRepositoryTools\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\DebianRepositoryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DebianRepositoryReleaseFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

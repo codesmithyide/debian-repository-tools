@@ -1,5 +1,8 @@
 ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/crypto/include/Ishiko/Crypto.bkl;
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
 import $(ishikopath)/process/include/Ishiko/Process.bkl;
+import $(ishikopath)/time/include/Ishiko/Time.bkl;
 
 toolsets = gnu vs2022 vs2019 vs2017 vs2015;
 
@@ -9,7 +12,7 @@ vs2019.solutionfile = ../vc16/CodeSmithyDebianRepositoryTools.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyDebianRepositoryTools.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyDebianRepositoryTools.sln;
 
-library CodeSmithyDebianRepositoryTools : IshikoProcess
+library CodeSmithyDebianRepositoryTools : IshikoCrypto, IshikoFileSystem, IshikoProcess, IshikoTime
 {
     includedirs += ../../../include/CodeSmithy/DebianRepositoryTools;
 
@@ -34,11 +37,13 @@ library CodeSmithyDebianRepositoryTools : IshikoProcess
     {
         ../../../include/CodeSmithy/DebianRepositoryTools.hpp
         ../../../include/CodeSmithy/DebianRepositoryTools/DebianRepositoryManager.hpp
+        ../../../include/CodeSmithy/DebianRepositoryTools/DebianRepositoryReleaseFile.hpp
         ../../../include/CodeSmithy/DebianRepositoryTools/linkoptions.hpp
     }
 
     sources
     {
         ../../src/DebianRepositoryManager.cpp
+        ../../src/DebianRepositoryReleaseFile.cpp
     }
 }
