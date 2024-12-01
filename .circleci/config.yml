@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Build
           command: cd /workspace/projects/codesmithyide/debian-repository-tools/cli/build-files/gnumake && make
+      - run:
+          name: Run the tests
+          command: cd /workspace/projects/codesmithyide/debian-repository-tools/cli/tests/build-files/gnumake && ./CodeSmithyDebianRepositoryToolsCLITests
       - store_artifacts:
           name: Upload test output files
           path: /build/test-output
