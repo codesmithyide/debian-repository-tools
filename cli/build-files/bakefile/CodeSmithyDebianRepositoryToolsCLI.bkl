@@ -1,4 +1,5 @@
 ishikopath = envvar("ISHIKO_CPP_ROOT");
+import $(ishikopath)/configuration/include/Ishiko/Configuration.bkl;
 import $(ishikopath)/errors/include/Ishiko/Errors.bkl;
 import $(ishikopath)/terminal/include/Ishiko/Terminal.bkl;
 
@@ -9,7 +10,7 @@ vs2022.solutionfile = ../vc17/CodeSmithyDebianRepositoryToolsCLI.sln;
 vs2019.solutionfile = ../vc16/CodeSmithyDebianRepositoryToolsCLI.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyDebianRepositoryToolsCLI.sln;
 
-program CodeSmithyDebianRepositoryToolsCLI : IshikoTerminal, IshikoErrors
+program CodeSmithyDebianRepositoryToolsCLI : IshikoTerminal, IshikoConfiguration, IshikoErrors
 {
     if ($(toolset) == gnu)
     {
