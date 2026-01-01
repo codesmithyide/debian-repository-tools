@@ -3,13 +3,12 @@ import $(codesmithyidepath)/debian-repository-tools/include/CodeSmithy/DebianRep
 ishikopath = envvar("ISHIKO_CPP_ROOT");
 import $(ishikopath)/test-framework/include/Ishiko/TestFramework.bkl;
 
-toolsets = gnu vs2022 vs2019 vs2017 vs2015;
+toolsets = gnu vs2022 vs2019 vs2017;
 
 gnu.makefile = ../gnumake/GNUmakefile;
 vs2022.solutionfile = ../vc17/CodeSmithyDebianRepositoryToolsTests.sln;
 vs2019.solutionfile = ../vc16/CodeSmithyDebianRepositoryToolsTests.sln;
 vs2017.solutionfile = ../vc15/CodeSmithyDebianRepositoryToolsTests.sln;
-vs2015.solutionfile = ../vc14/CodeSmithyDebianRepositoryToolsTests.sln;
 
 program CodeSmithyDebianRepositoryToolsTests : CodeSmithyDebianRepositoryTools, IshikoTestFramework
 {
@@ -23,6 +22,7 @@ program CodeSmithyDebianRepositoryToolsTests : CodeSmithyDebianRepositoryTools, 
     if ($(toolset) != gnu)
     {
         archs = x86 x86_64;
+        cxx-compiler-options = "/utf-8";
     }
 
     headers
