@@ -25,6 +25,7 @@ library CodeSmithyDebianRepositoryTools : IshikoCrypto, IshikoFileSystem, Ishiko
     if ($(toolset) != gnu)
     {
         archs = x86 x86_64;
+        cxx-compiler-options = "/utf-8";
         outputdir = ../../../lib/$(arch);
     }
 
